@@ -14,7 +14,7 @@ pipeline {
         stage('Environment Setup') {
         	steps {
 				sh 'cp .env.example .env'
-                # Set required enviroment variables
+                // Set required enviroment variables
                 withCrendentials([usernamePassword(credentialsId: 'dbconfig', usernameVariable: 'DB_USERNAME', passwordVariable: 'DB_PASSWORD')]) {
                     sh 'echo "DB_CONNECTION=mysql" >> .env'
                     sh 'echo "DB_DATABASE=laravel_ci" >> .env'
